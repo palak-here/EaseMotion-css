@@ -14,6 +14,8 @@ A modular, copy-paste ready React component for the EaseMotion CSS framework. Th
 - **Expo Easing Physics**: The counter uses an exponential ease-out formula (`1 - Math.pow(2, -10 * x)`). This means it rapidly counts up the bulk of the number, but slows down dramatically for the final few digits, creating a satisfying "landing" feel.
 - **Tabular Numerals**: The CSS applies `font-variant-numeric: tabular-nums;` to the counter. This ensures all digits take up the exact same horizontal width, preventing the layout from jittering back and forth while the numbers rapidly change.
 - **Staggered Entrance**: The card enters with a `translateY(20px) scale(0.98)` spring animation. The counter is intentionally delayed by `300ms` so the user sees the card land *before* the numbers start moving.
+- **Custom Styling Support**: Accepts an optional `className` prop, making it easy to integrate the component into existing dashboard layouts without modifying the source.
+- **Custom Trend Labels**: Supports a configurable `trendLabel` prop to display contextual comparisons such as "vs last month", "Compared to yesterday", or any custom text.
 
 ## 🚀 How to use
 
@@ -34,6 +36,8 @@ const Dashboard = () => {
         value={124500} 
         prefix="$" 
         trend={12.5} 
+         trendLabel="vs last month"
+         className="dashboard-card"
       />
       <MetricCard 
         title="Churn Rate" 

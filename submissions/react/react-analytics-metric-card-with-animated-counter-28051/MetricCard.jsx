@@ -16,7 +16,9 @@ const MetricCard = ({
   prefix = "", 
   suffix = "", 
   trend = 0,
-  duration = 2000
+  duration = 2000,
+  className = "",
+  trendLabel = "vs last month"
 }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -59,7 +61,7 @@ const MetricCard = ({
   const isPositive = trend >= 0;
 
   return (
-    <div className="ease-metric-card">
+    <div className={`ease-metric-card ${className}`}>
       <div className="ease-metric-header">
         <h3 className="ease-metric-title">{title}</h3>
         <button className="ease-metric-menu-btn" aria-label="More options">
@@ -97,7 +99,9 @@ const MetricCard = ({
           <span className="ease-metric-trend-value">
             {Math.abs(trend)}%
           </span>
-          <span className="ease-metric-trend-label">vs last month</span>
+          <span className="ease-metric-trend-label">
+  {trendLabel}
+</span>
         </div>
       </div>
       
